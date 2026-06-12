@@ -1,0 +1,10 @@
+# Ignore compiled executable
+*.exe
+
+# Ignore object files
+*.o
+*.obj
+
+# OS junk files
+.DS_Store
+Thumbs.db
