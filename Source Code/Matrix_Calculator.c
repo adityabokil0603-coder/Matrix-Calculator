@@ -4,8 +4,7 @@
 void inputMatrix(int mat[10][10], int r, int c) // A method to input matrix elements
 {
     int i,j;
-    printf("Enter matrix elements:\n");
-
+    
     for(i=0;i<r;i++)
     {
         for(j=0;j<c;j++)
@@ -18,15 +17,25 @@ void inputMatrix(int mat[10][10], int r, int c) // A method to input matrix elem
 void displayMatrix(int mat[10][10], int r, int c) // A method to display matrices
 {
     int i,j;
-    printf("Entered Matrix:\n");
 
     for(i=0;i<r;i++)
     {
         for(j=0;j<c;j++)
         {
-            printf("%d ",mat[i][j]);
+            printf("%4d",mat[i][j]);
         }
         printf("\n");
+    }
+}
+
+void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c) // A method to add matrices
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        matSum[i][j]=matA[i][j]+matB[i][j];
     }
 }
 
@@ -48,7 +57,26 @@ int main()
     {
         case 1:
         {
-            // Code for Matrix Addition
+            int r,c;
+            printf("Enter rows and columns of Matrix A and B:\n");
+            scanf("%d %d",&r,&c);
+            int matA[10][10], matB[10][10], matSum[10][10];
+
+            printf("Enter elements of Matrix A:\n");
+            inputMatrix(matA,r,c);
+
+            printf("\n");
+
+            printf("Enter elements of Matrix B:\n");
+            inputMatrix(matB,r,c); 
+
+            addMatrix(matA,matB,matSum,r,c);
+
+            printf("\n");
+
+            printf("Summation Matrix:\n");
+            displayMatrix(matSum,r,c);
+
             break;
         }
         case 2:
