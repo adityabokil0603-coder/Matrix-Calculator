@@ -35,7 +35,22 @@ void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, in
     for(i=0;i<r;i++)
     {
         for(j=0;j<c;j++)
-        matSum[i][j]=matA[i][j]+matB[i][j];
+        {
+            matSum[i][j]=matA[i][j]+matB[i][j];
+        }
+    }
+}
+
+void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c) // A method to subtract matrices
+{
+    int i,j;
+    
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            matDiff[i][j]=matA[i][j]-matB[i][j];
+        }
     }
 }
 
@@ -81,7 +96,24 @@ int main()
         }
         case 2:
         {
-            // Code for Matrix Subtraction
+            int r,c;
+            printf("Enter rows and columns of Matrix A and B:\n");
+            scanf("%d %d",&r,&c);
+            int matA[10][10], matB[10][10], matDiff[10][10];
+
+            printf("Enter elements of Matrix A:\n");
+            inputMatrix(matA,r,c);
+
+            printf("Enter elements of Matrix B:\n");
+            inputMatrix(matB,r,c);
+
+            subtractMatrix(matA,matB,matDiff,r,c);
+
+            printf("\n");
+
+            printf("Difference Matrix:\n");
+            displayMatrix(matDiff,r,c);
+
             break;
         }
         case 3:

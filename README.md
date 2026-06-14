@@ -13,7 +13,7 @@ The project is being developed incrementally in multiple phases, starting from b
 * [x] Matrix Input
 * [x] Matrix Display
 * [x] Matrix Addition
-* [ ] Matrix Subtraction
+* [x] Matrix Subtraction
 * [ ] Matrix Multiplication
 * [ ] Matrix Transpose
 * [ ] Exit Option
