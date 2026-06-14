@@ -54,6 +54,22 @@ void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int
     }
 }
 
+void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p) // A method to multiply matrices
+{
+    int i,j,k;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            for(k=0;k<p;k++)
+            {
+                matMul[i][j]+=matA[i][k]*matB[k][j]; 
+            }
+        }
+    }
+}
+
 int main()
 {
     int choice;
@@ -67,6 +83,8 @@ int main()
 
     printf("Enter your choice: ");
     scanf("%d",&choice);
+
+    printf("\n");
     
     switch(choice)
     {
@@ -75,6 +93,9 @@ int main()
             int r,c;
             printf("Enter rows and columns of Matrix A and B:\n");
             scanf("%d %d",&r,&c);
+
+            printf("\n");
+
             int matA[10][10], matB[10][10], matSum[10][10];
 
             printf("Enter elements of Matrix A:\n");
@@ -99,10 +120,15 @@ int main()
             int r,c;
             printf("Enter rows and columns of Matrix A and B:\n");
             scanf("%d %d",&r,&c);
+
+            printf("\n");
+
             int matA[10][10], matB[10][10], matDiff[10][10];
 
             printf("Enter elements of Matrix A:\n");
             inputMatrix(matA,r,c);
+
+            printf("\n");
 
             printf("Enter elements of Matrix B:\n");
             inputMatrix(matB,r,c);
@@ -118,7 +144,51 @@ int main()
         }
         case 3:
         {
-            // Code for Matrix Multiplication
+            int i,j; int rA,cA,rB,cB;
+            int matA[10][10], matB[10][10], matMul[10][10];
+
+            printf("Enter rows and columns of Matrix A:\n");
+            scanf("%d %d",&rA,&cA);
+
+            printf("\n");
+
+            printf("Enter rows and columns of Matrix B:\n");
+            scanf("%d %d",&rB,&cB);
+
+            printf("\n");
+
+            if(cA!=rB)
+            {
+                printf("Invalid Input!!\n");
+                printf("Columns of Matrix A must be equal to Rows of Matrix B!");
+            }
+            else
+            {
+                // First we need to initialize matMul as a null matrix
+                for(i=0;i<rA;i++)
+                {
+                    for(j=0;j<cB;j++)
+                    {
+                        matMul[i][j]=0;
+                    }
+                }
+
+                printf("Enter elements of Matrix A:\n");
+                inputMatrix(matA,rA,cA);
+
+                printf("\n");
+
+                printf("Enter elements of Matrix B:\n");
+                inputMatrix(matB,rB,cB);
+
+                printf("\n");
+
+                multiplyMatrix(matA,matB,matMul,rA,cB,cA);
+
+                printf("Multiplication Matrix:\n");
+                displayMatrix(matMul,rA,cB);
+            }
+
             break;
         }
         case 4:
