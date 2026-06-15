@@ -70,6 +70,19 @@ void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int 
     }
 }
 
+void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c)
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            matTrans[j][i]=mat[i][j];
+        }
+    }
+}
+
 int main()
 {
     int choice;
@@ -193,7 +206,24 @@ int main()
         }
         case 4:
         {
-            // Code for Matrix Transpose
+            int mat[10][10], matTrans[10][10];
+            int r,c;
+
+            printf("Enter rows and columns of Matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+            
+            printf("Enter elements of the Matrix:\n");
+            inputMatrix(mat,r,c);
+
+            printf("\n");
+
+            transposeMatrix(mat,matTrans,r,c);
+
+            printf("Transpose Matrix:\n");
+            displayMatrix(matTrans,c,r);
+
             break;
         }
         case 5:

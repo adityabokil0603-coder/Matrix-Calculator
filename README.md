@@ -15,7 +15,7 @@ The project is being developed incrementally in multiple phases, starting from b
 * [x] Matrix Addition
 * [x] Matrix Subtraction
 * [x] Matrix Multiplication
-* [ ] Matrix Transpose
+* [x] Matrix Transpose
 * [ ] Exit Option
 
 ---
