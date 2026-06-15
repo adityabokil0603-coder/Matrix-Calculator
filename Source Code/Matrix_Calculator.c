@@ -87,155 +87,168 @@ int main()
 {
     int choice;
 
-    printf("====Advanced Matrix Calculator====\n");
-    printf("1. Matrix Addition\n");
-    printf("2. Matrix Subtraction\n");
-    printf("3. Matrix Multiplication\n");
-    printf("4. Transpose of a Matrix\n");
-    printf("5. Exit\n"); 
-
-    printf("Enter your choice: ");
-    scanf("%d",&choice);
-
-    printf("\n");
-    
-    switch(choice)
+    while(1)
     {
-        case 1:
+        printf("\n");
+        printf("====Advanced Matrix Calculator====\n");
+        printf("1. Matrix Addition\n");
+        printf("2. Matrix Subtraction\n");
+        printf("3. Matrix Multiplication\n");
+        printf("4. Transpose of a Matrix\n");
+        printf("5. Exit\n"); 
+        
+        printf("Enter your choice: ");
+        scanf("%d",&choice);
+        
+        printf("\n");
+        
+        switch(choice)
         {
-            int r,c;
-            printf("Enter rows and columns of Matrix A and B:\n");
-            scanf("%d %d",&r,&c);
-
-            printf("\n");
-
-            int matA[10][10], matB[10][10], matSum[10][10];
-
-            printf("Enter elements of Matrix A:\n");
-            inputMatrix(matA,r,c);
-
-            printf("\n");
-
-            printf("Enter elements of Matrix B:\n");
-            inputMatrix(matB,r,c); 
-
-            addMatrix(matA,matB,matSum,r,c);
-
-            printf("\n");
-
-            printf("Summation Matrix:\n");
-            displayMatrix(matSum,r,c);
-
-            break;
-        }
-        case 2:
-        {
-            int r,c;
-            printf("Enter rows and columns of Matrix A and B:\n");
-            scanf("%d %d",&r,&c);
-
-            printf("\n");
-
-            int matA[10][10], matB[10][10], matDiff[10][10];
-
-            printf("Enter elements of Matrix A:\n");
-            inputMatrix(matA,r,c);
-
-            printf("\n");
-
-            printf("Enter elements of Matrix B:\n");
-            inputMatrix(matB,r,c);
-
-            subtractMatrix(matA,matB,matDiff,r,c);
-
-            printf("\n");
-
-            printf("Difference Matrix:\n");
-            displayMatrix(matDiff,r,c);
-
-            break;
-        }
-        case 3:
-        {
-            int i,j; int rA,cA,rB,cB;
-            int matA[10][10], matB[10][10], matMul[10][10];
-
-            printf("Enter rows and columns of Matrix A:\n");
-            scanf("%d %d",&rA,&cA);
-
-            printf("\n");
-
-            printf("Enter rows and columns of Matrix B:\n");
-            scanf("%d %d",&rB,&cB);
-
-            printf("\n");
-
-            if(cA!=rB)
+            case 1:
             {
-                printf("Invalid Input!!\n");
-                printf("Columns of Matrix A must be equal to Rows of Matrix B!");
-            }
-            else
-            {
-                // First we need to initialize matMul as a null matrix
-                for(i=0;i<rA;i++)
-                {
-                    for(j=0;j<cB;j++)
-                    {
-                        matMul[i][j]=0;
-                    }
-                }
-
+                int r,c;
+                printf("Enter rows and columns of Matrix A and B:\n");
+                scanf("%d %d",&r,&c);
+                
+                printf("\n");
+                
+                int matA[10][10], matB[10][10], matSum[10][10];
+                
                 printf("Enter elements of Matrix A:\n");
-                inputMatrix(matA,rA,cA);
-
+                inputMatrix(matA,r,c);
+                
                 printf("\n");
-
+                
                 printf("Enter elements of Matrix B:\n");
-                inputMatrix(matB,rB,cB);
-
+                inputMatrix(matB,r,c); 
+                
+                addMatrix(matA,matB,matSum,r,c);
+                
                 printf("\n");
-
-                multiplyMatrix(matA,matB,matMul,rA,cB,cA);
-
-                printf("Multiplication Matrix:\n");
-                displayMatrix(matMul,rA,cB);
+                
+                printf("Summation Matrix:\n");
+                displayMatrix(matSum,r,c);
+                
+                break;
             }
-
-            break;
+            case 2:
+            {
+                int r,c;
+                printf("Enter rows and columns of Matrix A and B:\n");
+                scanf("%d %d",&r,&c);
+                
+                printf("\n");
+                
+                int matA[10][10], matB[10][10], matDiff[10][10];
+                
+                printf("Enter elements of Matrix A:\n");
+                inputMatrix(matA,r,c);
+                
+                printf("\n");
+                
+                printf("Enter elements of Matrix B:\n");
+                inputMatrix(matB,r,c);
+                
+                subtractMatrix(matA,matB,matDiff,r,c);
+                
+                printf("\n");
+                
+                printf("Difference Matrix:\n");
+                displayMatrix(matDiff,r,c);
+                
+                break;
+            }
+            case 3:
+            {
+                int i,j; int rA,cA,rB,cB;
+                int matA[10][10], matB[10][10], matMul[10][10];
+                
+                printf("Enter rows and columns of Matrix A:\n");
+                scanf("%d %d",&rA,&cA);
+                
+                printf("\n");
+                
+                printf("Enter rows and columns of Matrix B:\n");
+                scanf("%d %d",&rB,&cB);
+                
+                printf("\n");
+                
+                if(cA!=rB)
+                {
+                    printf("Invalid Input!!\n");
+                    printf("Columns of Matrix A must be equal to Rows of Matrix B!");
+                }
+                else
+                {
+                    // First we need to initialize matMul as a null matrix
+                    for(i=0;i<rA;i++)
+                    {
+                        for(j=0;j<cB;j++)
+                        {
+                            matMul[i][j]=0;
+                        }
+                    }
+                    
+                    printf("Enter elements of Matrix A:\n");
+                    inputMatrix(matA,rA,cA);
+                    
+                    printf("\n");
+                    
+                    printf("Enter elements of Matrix B:\n");
+                    inputMatrix(matB,rB,cB);
+                    
+                    printf("\n");
+                    
+                    multiplyMatrix(matA,matB,matMul,rA,cB,cA);
+                    
+                    printf("Multiplication Matrix:\n");
+                    displayMatrix(matMul,rA,cB);
+                }
+                
+                break;
+            }
+            case 4:
+            {
+                int mat[10][10], matTrans[10][10];
+                int r,c;
+                
+                printf("Enter rows and columns of Matrix:\n");
+                scanf("%d %d",&r,&c);
+                
+                printf("\n");
+                
+                printf("Enter elements of the Matrix:\n");
+                inputMatrix(mat,r,c);
+                
+                printf("\n");
+                
+                transposeMatrix(mat,matTrans,r,c);
+                
+                printf("Transpose Matrix:\n");
+                displayMatrix(matTrans,c,r);
+                
+                break;
+            }
+            case 5:
+            {
+                printf("Thank you for using the Matrix Calculator!!\n");
+                printf("Hope you had a good time!!\n");
+                printf("Visit soon!!\n"); 
+                printf("Program Ends :D !!\n");
+                break;
+            }
+            default:
+            {
+                printf("Invalid Choice!\n");
+                printf("Please enter a correct choice!\n");
+            }
         }
-        case 4:
+
+        if(choice==5)
         {
-            int mat[10][10], matTrans[10][10];
-            int r,c;
-
-            printf("Enter rows and columns of Matrix:\n");
-            scanf("%d %d",&r,&c);
-
-            printf("\n");
-            
-            printf("Enter elements of the Matrix:\n");
-            inputMatrix(mat,r,c);
-
-            printf("\n");
-
-            transposeMatrix(mat,matTrans,r,c);
-
-            printf("Transpose Matrix:\n");
-            displayMatrix(matTrans,c,r);
-
             break;
-        }
-        case 5:
-        {
-            // Exit code
-            break;
-        }
-        default:
-        {
-            printf("Invalid Choice!\n");
         }
     }
-
+    
     return 0;
 } 
