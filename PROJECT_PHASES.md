@@ -1,69 +1,155 @@
 # Advanced Matrix Calculator - Project Roadmap
 
 ## Phase 1: Core Calculator Foundation
+
 Build the basic menu-driven matrix calculator and implement the most common matrix operations.
 
 ### Features
-- Matrix Addition
-- Matrix Subtraction
-- Matrix Multiplication
-- Matrix Transpose
-- Exit Option
+
+* Matrix Addition
+* Matrix Subtraction
+* Matrix Multiplication
+* Matrix Transpose
+* Exit Option
 
 ---
 
 ## Phase 2: Matrix Analysis Operations
+
 Implement operations that analyze matrix contents and provide useful numerical information.
 
-### Features 
-- Row Sum
-- Column Sum
-- Main Diagonal Sum
-- Matrix Trace
+### Features
+
+* Row Sum
+* Column Sum
+* Matrix Trace
+* Secondary Diagonal Sum
+* Sum of All Elements
+* Maximum Element
+* Minimum Element
+* Count Positive Elements
+* Count Negative Elements
+* Count Zero Elements
 
 ---
 
 ## Phase 3: Matrix Property Checker
+
 Allow users to verify important mathematical properties of matrices.
 
 ### Features
-- Identity Matrix Check
-- Symmetric Matrix Check
-- Upper Triangular Matrix Check
-- Lower Triangular Matrix Check
-- Diagonal Matrix Check
-- Sparse Matrix Check
 
---- 
+* Identity Matrix Check
+* Symmetric Matrix Check
+* Skew-Symmetric Matrix Check
+* Diagonal Matrix Check
+* Scalar Matrix Check
+* Upper Triangular Matrix Check
+* Lower Triangular Matrix Check
+* Sparse Matrix Check
+* Null Matrix Check
+* Square Matrix Check
 
-## Phase 4: Intermediate Mathematical Operations
-Introuce classical matrix mathematics use in linear algebra.
+---
+
+## Phase 4: Determinants and Classical Linear Algebra
+
+Introduce classical matrix mathematics used in linear algebra.
 
 ### Features
-- Determinant (2x2)
-- Determinant (3x3)
-- Matrix Minor
-- Matrix Cofactor
+
+* Determinant (2×2)
+* Determinant (3×3)
+* Determinant (n×n)
+* Matrix Minor
+* Matrix Cofactor
+* Matrix Adjoint
+* Matrix Inverse (2×2)
+* Matrix Inverse (3×3)
+* Matrix Inverse (n×n)
 
 ---
 
-## Phase 5: Advanced Matrix Operations
-Implement more advanced matrix calculations and transformations.
+## Phase 5: Matrix Transformations
 
-### Features 
-- Matrix Inverse (2x2)
-- Matrix Adjoint
-- Scalar Multiplication
-- Matrix Equality Check
+Implement advanced matrix operations and transformations.
+
+### Features
+
+* Scalar Multiplication
+* Matrix Equality Check
+* Matrix Copy
+* Matrix Rotation (90° Clockwise)
+* Matrix Rotation (90° Anti-clockwise)
+* Horizontal Reflection
+* Vertical Reflection
+* Matrix Reshaping
+* Matrix Flattening
 
 ---
 
-## Phase 6: Professional Enhancements
-Improve usability, robustness, and overall user experience. 
+## Phase 6: Row Operations and Gaussian Elimination
 
-### Features 
-- Dimension Validation
-- Invalid Input Handling
-- Formatted Matrix Output
-- Continue/Exit Confirmation
-- Better User Interface
+Implement row operations and solve systems of linear equations.
+
+### Features
+
+* Swap Two Rows
+* Swap Two Columns
+* Multiply a Row by a Constant
+* Add Multiple of One Row to Another
+* Row Echelon Form (REF)
+* Reduced Row Echelon Form (RREF)
+* Rank of Matrix
+* Solve Linear Equations using Gaussian Elimination
+
+---
+
+## Phase 7: Professional Enhancements
+
+Improve usability, robustness, and user experience.
+
+### Features
+
+* Dimension Validation
+* Invalid Input Handling
+* Better Error Messages
+* Formatted Matrix Output
+* Continue/Exit Confirmation
+* Colored Output
+* Screen Clear Function
+* Welcome Banner
+* Operation History
+
+---
+
+## Phase 8: File Handling and Project Architecture
+
+Transform the calculator into a professional and extensible project.
+
+### Features
+
+* Save Matrix to File
+* Load Matrix from File
+* Save Result Matrix
+* Maintain Operation Log
+* Export Session History
+* Modularize into Multiple Source Files
+* Header Files
+* Separate Compilation
+* Static Libraries
+* Makefile Support
+
+---
+
+## Future Ideas
+
+* LU Decomposition
+* Cholesky Decomposition
+* QR Decomposition
+* Eigenvalues and Eigenvectors
+* Dynamic Matrix Size using malloc()
+* Sparse Matrix Storage
+* Execution Time Benchmarking
+* Matrix Heatmaps
+* Step-by-step Gaussian Elimination Visualization
