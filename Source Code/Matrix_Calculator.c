@@ -70,7 +70,7 @@ void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int 
     }
 }
 
-void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c)
+void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c) // A method to take transpose of a matrix
 {
     int i,j;
 
@@ -90,12 +90,24 @@ int main()
     while(1)
     {
         printf("\n");
-        printf("====Advanced Matrix Calculator====\n");
+        printf("====Advanced Matrix Calculator====\n\n");
+        printf("===Core Calculator Foundation===\n");
         printf("1. Matrix Addition\n");
         printf("2. Matrix Subtraction\n");
         printf("3. Matrix Multiplication\n");
-        printf("4. Transpose of a Matrix\n");
-        printf("5. Exit\n"); 
+        printf("4. Transpose of a Matrix\n\n");
+        printf("===Matrix Analysis Operations===\n");
+        printf("5. Row Sum\n");
+        printf("6. Column Sum\n");
+        printf("7. Matrix Trace\n");
+        printf("8. Secondary Diagonal Sum\n");
+        printf("9. Sum of All elements\n");
+        printf("10. Maximum Element\n");
+        printf("11. Minimum Element\n");
+        printf("12. Count Positive Elements\n");
+        printf("13. Count Negative Elements\n");
+        printf("14. Count Zero Elements\n");
+        printf("15. Exit\n\n"); 
         
         printf("Enter your choice: ");
         scanf("%d",&choice);
@@ -229,7 +241,7 @@ int main()
                 
                 break;
             }
-            case 5:
+            case 15:
             {
                 printf("Thank you for using the Matrix Calculator!!\n");
                 printf("Hope you had a good time!!\n");
@@ -244,7 +256,7 @@ int main()
             }
         }
 
-        if(choice==5)
+        if(choice==15)
         {
             break;
         }
