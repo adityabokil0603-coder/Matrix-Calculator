@@ -83,6 +83,19 @@ void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c) // A m
     }
 }
 
+void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c)
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            matRowSum[i][0]+=mat[i][j];
+        }
+    }
+}
+
 int main()
 {
     int choice;
@@ -243,7 +256,30 @@ int main()
             }
             case 5:
             {
-                // Code for row sum
+                int mat[10][10], matSum[10][10];
+                int r,c,i,j;
+
+                printf("Enter rows and columns of Matrix:\n");
+                scanf("%d %d",&r,&c);
+
+                printf("\n");
+
+                printf("Enter elements of the Matrix:\n");
+                inputMatrix(mat,r,c);
+
+                printf("\n");
+
+                // Initializing matSum matrix as a null matrix
+                for(i=0;i<r;i++)
+                {
+                    matSum[i][0]=0;
+                }
+
+                rowSum(mat,matSum,r,c);
+
+                printf("Row Sum Matrix:\n");
+                displayMatrix(matSum,r,1);
+
                 break;
             }
             case 6:
