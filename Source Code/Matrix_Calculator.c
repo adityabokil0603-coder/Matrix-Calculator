@@ -106,7 +106,7 @@ int main()
         printf("11. Minimum Element\n");
         printf("12. Count Positive Elements\n");
         printf("13. Count Negative Elements\n");
-        printf("14. Count Zero Elements\n");
+        printf("14. Count Zero Elements\n\n");
         printf("15. Exit\n\n"); 
         
         printf("Enter your choice: ");
@@ -239,6 +239,56 @@ int main()
                 printf("Transpose Matrix:\n");
                 displayMatrix(matTrans,c,r);
                 
+                break;
+            }
+            case 5:
+            {
+                // Code for row sum
+                break;
+            }
+            case 6:
+            {
+                // Code for column sum
+                break;
+            }
+            case 7:
+            {
+                // Code for Matrix Trace
+                break;
+            }
+            case 8:
+            {
+                // Code for Secondary Diagonal Sum
+                break;
+            }
+            case 9:
+            {
+                // Code for Sum of all elements in a Matrix
+                break;
+            }
+            case 10:
+            {
+                // Code to find greatest element in matrix
+                break;
+            }
+            case 11:
+            {
+                // Code to find smallest element in matrix
+                break;
+            }
+            case 12:
+            {
+                // Code to count number of positive elements
+                break;
+            }
+            case 13:
+            {
+                // Code to count number of negative elements
+                break;
+            }
+            case 14:
+            {
+                // Code to count number of zero elements
                 break;
             }
             case 15:
