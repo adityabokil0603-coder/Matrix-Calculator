@@ -23,7 +23,7 @@ The project is being developed incrementally in multiple phases, starting from b
 ### Phase 2: Matrix Analysis Operations 🚧
 
 * [x] Row Sum
-* [ ] Column Sum
+* [x] Column Sum
 * [ ] Matrix Trace
 * [ ] Secondary Diagonal Sum
 * [ ] Sum of All Elements

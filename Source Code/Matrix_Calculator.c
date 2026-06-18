@@ -96,6 +96,19 @@ void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c)
     }
 }
 
+void colSum(int mat[10][10], int matColSum[10][10], int r, int c)
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            matColSum[0][j]+=mat[i][j];
+        }
+    }
+}
+
 int main()
 {
     int choice;
@@ -257,7 +270,7 @@ int main()
             case 5:
             {
                 int mat[10][10], matSum[10][10];
-                int r,c,i,j;
+                int r,c,i;
 
                 printf("Enter rows and columns of Matrix:\n");
                 scanf("%d %d",&r,&c);
@@ -284,7 +297,30 @@ int main()
             }
             case 6:
             {
-                // Code for column sum
+                int mat[10][10], matSum[10][10];
+                int r,c,j;
+                
+                printf("Enter rows and columns of Matrix:\n");
+                scanf("%d %d",&r,&c);
+                
+                printf("\n");
+                
+                printf("Enter elements of the Matrix:\n");
+                inputMatrix(mat,r,c);
+
+                printf("\n");
+
+                // Initializing matSum as a null matrix
+                for(j=0;j<c;j++)
+                {
+                    matSum[0][j]=0;
+                }
+
+                colSum(mat,matSum,r,c);
+                
+                printf("Column Sum Matrix:\n");
+                displayMatrix(matSum,1,c);
+
                 break;
             }
             case 7:
