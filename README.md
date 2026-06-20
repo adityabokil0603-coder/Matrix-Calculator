@@ -24,7 +24,7 @@ The project is being developed incrementally in multiple phases, starting from b
 
 * [x] Row Sum
 * [x] Column Sum
-* [ ] Matrix Trace
+* [x] Matrix Trace
 * [ ] Secondary Diagonal Sum
 * [ ] Sum of All Elements
 * [ ] Maximum Element
