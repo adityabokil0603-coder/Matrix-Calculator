@@ -1,6 +1,8 @@
 // An Advanced Matrix Calculator Program for Mini Project
 #include <stdio.h>
 
+/* *********************************HELPER FUNCTIONS********************************** */
+
 void inputMatrix(int mat[10][10], int r, int c) // A method to input matrix elements
 {
     int i, j;
@@ -27,6 +29,8 @@ void displayMatrix(int mat[10][10], int r, int c) // A method to display matrice
         printf("\n");
     }
 }
+
+/* ********************************OPERATIONAL FUNCTIONS********************************** */
 
 void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c) // A method to add matrices
 {
@@ -118,6 +122,19 @@ void matTrace(int mat[10][10], int matSum[10][10], int r) // A method to calcula
         matSum[0][0] += mat[i][i];
     }
 }
+
+void matSecDiag(int mat[10][10], int matSum[10][10], int r, int c) // A method to calculate sum of secondary diagonal
+{
+    int i;
+
+    for(i=0;i<r;i++)
+    {
+        matSum[0][0]+=mat[i][c-1-i];
+    }
+}
+
+/* *********************************HANDLER FUNCTIONS********************************** */
+// Yet to add
 
 int main()
 {
@@ -372,7 +389,40 @@ int main()
         }
         case 8:
         {
-            // Code for Secondary Diagonal Sum
+            int r,c,i,j;
+            int mat[10][10], matSum[10][10];
+
+            printf("Enter rows and columns of matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+
+            if(r!=c)
+            {
+                printf("Invalid input!! Rows and Columns must be equal for this feature!\n");
+            }
+            else
+            {
+                printf("Enter elements of matrix:\n");
+                inputMatrix(mat,r,c);
+
+                printf("\n");
+
+                // Initializing matSum as Null Matrix
+                for(i=0;i<r;i++)
+                {
+                    for(j=0;j<c;j++)
+                    {
+                        matSum[i][j]=0;
+                    }
+                }
+
+                matSecDiag(mat,matSum,r,c);
+
+                printf("Secondary Diagonal Sum of Matrix:\n");
+                displayMatrix(matSum,1,1);
+            }
+
             break;
         }
         case 9:
