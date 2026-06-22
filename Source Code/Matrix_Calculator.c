@@ -133,6 +133,19 @@ void matSecDiag(int mat[10][10], int matSum[10][10], int r, int c) // A method t
     }
 }
 
+void matEleSum(int mat[10][10], int matSum[10][10], int r, int c) // A method to calculate sum of all elements in matrix
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            matSum[0][0]+=mat[i][j];
+        }
+    }
+}
+
 /* *********************************HANDLER FUNCTIONS********************************** */
 // Yet to add
 
@@ -427,7 +440,33 @@ int main()
         }
         case 9:
         {
-            // Code for Sum of all elements in a Matrix
+            int r,c,i,j;
+            int mat[10][10], matSum[10][10];
+
+            printf("Enter number of rows and columns of matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+
+            printf("Enter elements of matrix:\n");
+            inputMatrix(mat,r,c);
+
+            printf("\n");
+
+            // Initializing matSum as null matrix
+            for(i=0;i<r;i++)
+            {
+                for(j=0;j<c;j++)
+                {
+                    matSum[i][j]=0;
+                }
+            }
+
+            matEleSum(mat,matSum,r,c);
+
+            printf("Sum of all elements in matrix:\n");
+            displayMatrix(matSum,1,1);
+
             break;
         }
         case 10:
