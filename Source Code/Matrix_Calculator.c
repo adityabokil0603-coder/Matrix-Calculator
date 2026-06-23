@@ -146,6 +146,25 @@ void matEleSum(int mat[10][10], int matSum[10][10], int r, int c) // A method to
     }
 }
 
+int matGreatEle(int mat[10][10], int r, int c) // A method to find greatest element in matrix
+{
+    int i,j,max;
+    max=mat[0][0];
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            if(mat[i][j]>max)
+            {
+                max=mat[i][j];
+            }
+        }
+    }
+
+    return max;
+}
+
 /* *********************************HANDLER FUNCTIONS********************************** */
 // Yet to add
 
@@ -471,7 +490,21 @@ int main()
         }
         case 10:
         {
-            // Code to find greatest element in matrix
+            int mat[10][10],r,c,max;
+            printf("Enter number of rows and columns of the matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+
+            printf("Enter elements of the matrix:\n");
+            inputMatrix(mat,r,c);
+
+            printf("\n");
+
+            max=matGreatEle(mat,r,c);
+
+            printf("Greatest element in the matrix: %d",max);
+
             break;
         }
         case 11:
