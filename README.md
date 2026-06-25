@@ -28,7 +28,7 @@ The project is being developed incrementally in multiple phases, starting from b
 * [x] Secondary Diagonal Sum
 * [x] Sum of All Elements
 * [x] Maximum Element
-* [ ] Minimum Element
+* [x] Minimum Element
 * [ ] Count Positive Elements
 * [ ] Count Negative Elements
 * [ ] Count Zero Elements

@@ -165,6 +165,25 @@ int matGreatEle(int mat[10][10], int r, int c) // A method to find greatest elem
     return max;
 }
 
+int matSmallEle(int mat[10][10], int r, int c) // A method to find smallest element in matrix
+{
+    int i,j,min;
+    min=mat[0][0];
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            if(mat[i][j]<min)
+            {
+                min=mat[i][j];
+            }
+        }
+    }
+
+    return min;
+}
+
 /* *********************************HANDLER FUNCTIONS********************************** */
 // Yet to add
 
@@ -509,7 +528,21 @@ int main()
         }
         case 11:
         {
-            // Code to find smallest element in matrix
+            int mat[10][10],r,c,min;
+            printf("Enter number of rows and columns of the matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+
+            printf("Enter elements of the matrix:\n");
+            inputMatrix(mat,r,c);
+
+            printf("\n");
+
+            min=matSmallEle(mat,r,c);
+
+            printf("Smallest element in the matrix: %d",min);
+
             break;
         }
         case 12:
