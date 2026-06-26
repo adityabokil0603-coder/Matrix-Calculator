@@ -184,6 +184,24 @@ int matSmallEle(int mat[10][10], int r, int c) // A method to find smallest elem
     return min;
 }
 
+int posCount(int mat[10][10], int r, int c)
+{
+    int i,j,count=0;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            if(mat[i][j]>0)
+            {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
 /* *********************************HANDLER FUNCTIONS********************************** */
 // Yet to add
 
@@ -547,7 +565,21 @@ int main()
         }
         case 12:
         {
-            // Code to count number of positive elements
+            int mat[10][10],r,c,count;
+            printf("Enter number of rows and columns of matrix:\n");
+            scanf("%d %d",&r,&c);
+
+            printf("\n");
+
+            printf("Enter elements of the matrix:\n");
+            inputMatrix(mat,r,c);
+
+            printf("\n");
+
+            count=posCount(mat,r,c);
+
+            printf("The number of positive elements in the matrix: %d",count);
+
             break;
         }
         case 13:
