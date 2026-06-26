@@ -31,7 +31,7 @@ The project is being developed incrementally in multiple phases, starting from b
 * [x] Minimum Element
 * [x] Count Positive Elements
 * [x] Count Negative Elements
-* [ ] Count Zero Elements
+* [x] Count Zero Elements
 
 ---
 
