@@ -1,7 +1,57 @@
 // An Advanced Matrix Calculator Program for Mini Project
 #include <stdio.h>
 
-/* *********************************HELPER FUNCTIONS********************************** */
+/* **************************************** FUNCTION PROTOTYPES **************************************** */
+
+/* Helper Functions */
+void inputMatrix(int mat[10][10], int r, int c);
+void displayMatrix(int mat[10][10], int r, int c);
+void initializeMatrix(int mat[10][10], int r, int c);
+
+/* Operational Functions */
+// Phase 1
+void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c);
+void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c);
+void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p);
+void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c);
+
+// Phase 2
+void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c);
+void colSum(int mat[10][10], int matColSum[10][10], int r, int c);
+int matTrace(int mat[10][10], int r);
+int matSecDiag(int mat[10][10], int r, int c);
+int matEleSum(int mat[10][10], int r, int c);
+int matGreatEle(int mat[10][10], int r, int c);
+int matSmallEle(int mat[10][10], int r, int c);
+int posCount(int mat[10][10], int r, int c);
+int negCount(int mat[10][10], int r, int c);
+int zeroCount(int mat[10][10], int r, int c);
+
+/* Hander Functions */
+// Phase 1
+void handleAddition();
+void handleSubtraction();
+void handleMultiplication();
+void handleTranspose();
+
+// Phase 2
+void handleRowSum();
+void handleColSum();
+void handleTrace();
+void handleSecondaryDiagonal();
+void handleElementsSum();
+void handleMaximum();
+void handleMinimum();
+void handlePositiveCount();
+void handleNegativeCount();
+void handleZeroCount();
+
+/* Menu Functions */
+void printMenu();
+void printPhase1Menu();
+void printPhase2Menu();
+
+/* **************************************** HELPER FUNCTIONS *************************************** */
 
 void inputMatrix(int mat[10][10], int r, int c) // A method to input matrix elements
 {
@@ -30,7 +80,20 @@ void displayMatrix(int mat[10][10], int r, int c) // A method to display matrice
     }
 }
 
-/* ********************************OPERATIONAL FUNCTIONS********************************** */
+void initializeMatrix(int mat[10][10], int r, int c)
+{
+    int i, j;
+
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            mat[i][j] = 0;
+        }
+    }
+}
+
+/* **************************************** OPERATIONAL FUNCTIONS **************************************** */
 
 void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c) // A method to add matrices
 {
@@ -113,51 +176,57 @@ void colSum(int mat[10][10], int matColSum[10][10], int r, int c) // A method to
     }
 }
 
-void matTrace(int mat[10][10], int matSum[10][10], int r) // A method to calculate the trace of a matrix
+int matTrace(int mat[10][10], int r) // A method to calculate the trace of a matrix
 {
-    int i;
+    int i, sum = 0;
 
     for (i = 0; i < r; i++)
     {
-        matSum[0][0] += mat[i][i];
+        sum += mat[i][i];
     }
+
+    return sum;
 }
 
-void matSecDiag(int mat[10][10], int matSum[10][10], int r, int c) // A method to calculate sum of secondary diagonal
+int matSecDiag(int mat[10][10], int r, int c) // A method to calculate sum of secondary diagonal
 {
-    int i;
+    int i, sum = 0;
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        matSum[0][0]+=mat[i][c-1-i];
+        sum += mat[i][c - 1 - i];
     }
+
+    return sum;
 }
 
-void matEleSum(int mat[10][10], int matSum[10][10], int r, int c) // A method to calculate sum of all elements in matrix
+int matEleSum(int mat[10][10], int r, int c) // A method to calculate sum of all elements in matrix
 {
-    int i,j;
+    int i, j, sum = 0;
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            matSum[0][0]+=mat[i][j];
+            sum += mat[i][j];
         }
     }
+
+    return sum;
 }
 
 int matGreatEle(int mat[10][10], int r, int c) // A method to find greatest element in matrix
 {
-    int i,j,max;
-    max=mat[0][0];
+    int i, j, max;
+    max = mat[0][0];
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            if(mat[i][j]>max)
+            if (mat[i][j] > max)
             {
-                max=mat[i][j];
+                max = mat[i][j];
             }
         }
     }
@@ -167,16 +236,16 @@ int matGreatEle(int mat[10][10], int r, int c) // A method to find greatest elem
 
 int matSmallEle(int mat[10][10], int r, int c) // A method to find smallest element in matrix
 {
-    int i,j,min;
-    min=mat[0][0];
+    int i, j, min;
+    min = mat[0][0];
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            if(mat[i][j]<min)
+            if (mat[i][j] < min)
             {
-                min=mat[i][j];
+                min = mat[i][j];
             }
         }
     }
@@ -186,13 +255,13 @@ int matSmallEle(int mat[10][10], int r, int c) // A method to find smallest elem
 
 int posCount(int mat[10][10], int r, int c)
 {
-    int i,j,count=0;
+    int i, j, count = 0;
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            if(mat[i][j]>0)
+            if (mat[i][j] > 0)
             {
                 count++;
             }
@@ -204,13 +273,13 @@ int posCount(int mat[10][10], int r, int c)
 
 int negCount(int mat[10][10], int r, int c)
 {
-    int i,j,count=0;
+    int i, j, count = 0;
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            if(mat[i][j]<0)
+            if (mat[i][j] < 0)
             {
                 count++;
             }
@@ -222,13 +291,13 @@ int negCount(int mat[10][10], int r, int c)
 
 int zeroCount(int mat[10][10], int r, int c)
 {
-    int i,j,count=0;
+    int i, j, count = 0;
 
-    for(i=0;i<r;i++)
+    for (i = 0; i < r; i++)
     {
-        for(j=0;j<c;j++)
+        for (j = 0; j < c; j++)
         {
-            if(mat[i][j]==0)
+            if (mat[i][j] == 0)
             {
                 count++;
             }
@@ -459,7 +528,7 @@ int main()
         case 7:
         {
             int r, c, i, j;
-            int mat[10][10], matSum[10][10];
+            int mat[10][10], sum;
 
             printf("Enter rows and columns of Matrix:\n");
             scanf("%d %d", &r, &c);
@@ -475,184 +544,154 @@ int main()
 
                 printf("\n");
 
-                // Initializing matSum as Null Matrix
-                for (i = 0; i < r; i++)
-                {
-                    for (j = 0; j < c; j++)
-                    {
-                        matSum[i][j] = 0;
-                    }
-                }
+                sum = matTrace(mat, r);
 
-                matTrace(mat, matSum, r);
-
-                printf("Trace of Matrix:\n");
-                displayMatrix(matSum, 1, 1);
+                printf("Trace of Matrix: %d", sum);
             }
 
             break;
         }
         case 8:
         {
-            int r,c,i,j;
-            int mat[10][10], matSum[10][10];
+            int r, c, i, j;
+            int mat[10][10], sum;
 
             printf("Enter rows and columns of matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
-            if(r!=c)
+            if (r != c)
             {
                 printf("Invalid input!! Rows and Columns must be equal for this feature!\n");
             }
             else
             {
                 printf("Enter elements of matrix:\n");
-                inputMatrix(mat,r,c);
+                inputMatrix(mat, r, c);
 
                 printf("\n");
 
-                // Initializing matSum as Null Matrix
-                for(i=0;i<r;i++)
-                {
-                    for(j=0;j<c;j++)
-                    {
-                        matSum[i][j]=0;
-                    }
-                }
+                sum = matSecDiag(mat, r, c);
 
-                matSecDiag(mat,matSum,r,c);
-
-                printf("Secondary Diagonal Sum of Matrix:\n");
-                displayMatrix(matSum,1,1);
+                printf("Secondary Diagonal Sum of Matrix: %d", sum);
             }
 
             break;
         }
         case 9:
         {
-            int r,c,i,j;
-            int mat[10][10], matSum[10][10];
+            int r, c, i, j;
+            int mat[10][10], sum;
 
             printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            // Initializing matSum as null matrix
-            for(i=0;i<r;i++)
-            {
-                for(j=0;j<c;j++)
-                {
-                    matSum[i][j]=0;
-                }
-            }
+            matEleSum(mat, r, c);
 
-            matEleSum(mat,matSum,r,c);
-
-            printf("Sum of all elements in matrix:\n");
-            displayMatrix(matSum,1,1);
+            printf("Sum of all elements in matrix: %d", sum);
 
             break;
         }
         case 10:
         {
-            int mat[10][10],r,c,max;
+            int mat[10][10], r, c, max;
             printf("Enter number of rows and columns of the matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of the matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            max=matGreatEle(mat,r,c);
+            max = matGreatEle(mat, r, c);
 
-            printf("Greatest element in the matrix: %d",max);
+            printf("Greatest element in the matrix: %d", max);
 
             break;
         }
         case 11:
         {
-            int mat[10][10],r,c,min;
+            int mat[10][10], r, c, min;
             printf("Enter number of rows and columns of the matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of the matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            min=matSmallEle(mat,r,c);
+            min = matSmallEle(mat, r, c);
 
-            printf("Smallest element in the matrix: %d",min);
+            printf("Smallest element in the matrix: %d", min);
 
             break;
         }
         case 12:
         {
-            int mat[10][10],r,c,count;
+            int mat[10][10], r, c, count;
             printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of the matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            count=posCount(mat,r,c);
+            count = posCount(mat, r, c);
 
-            printf("The number of positive elements in the matrix: %d",count);
+            printf("The number of positive elements in the matrix: %d", count);
 
             break;
         }
         case 13:
         {
-            int mat[10][10],r,c,count;
+            int mat[10][10], r, c, count;
             printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of the matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            count=negCount(mat,r,c);
+            count = negCount(mat, r, c);
 
-            printf("The number of negative elements in the matrix: %d",count);
+            printf("The number of negative elements in the matrix: %d", count);
 
             break;
         }
         case 14:
         {
-            int mat[10][10],r,c,count;
+            int mat[10][10], r, c, count;
             printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d",&r,&c);
+            scanf("%d %d", &r, &c);
 
             printf("\n");
 
             printf("Enter elements of the matrix:\n");
-            inputMatrix(mat,r,c);
+            inputMatrix(mat, r, c);
 
             printf("\n");
 
-            count=zeroCount(mat,r,c);
+            count = zeroCount(mat, r, c);
 
-            printf("The number of zeros in the matrix: %d",count);
+            printf("The number of zeros in the matrix: %d", count);
 
             break;
         }
