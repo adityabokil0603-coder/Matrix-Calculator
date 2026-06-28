@@ -4,11 +4,16 @@
 /* **************************************** FUNCTION PROTOTYPES **************************************** */
 
 /* Helper Functions */
+
 void inputMatrix(int mat[10][10], int r, int c);
 void displayMatrix(int mat[10][10], int r, int c);
 void initialize2DMatrix(int mat[10][10], int r, int c);
+void printMainMenu();
+void printPhase1Menu();
+void printPhase2Menu();
 
 /* Operational Functions */
+
 // Phase 1
 void addMatrices(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c);
 void subtractMatrices(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c);
@@ -28,6 +33,7 @@ int negCount(int mat[10][10], int r, int c);
 int zeroCount(int mat[10][10], int r, int c);
 
 /* Handler Functions */
+
 // Phase 1
 void handleAddition();
 void handleSubtraction();
@@ -45,11 +51,6 @@ void handleMinimum();
 void handlePositiveCount();
 void handleNegativeCount();
 void handleZeroCount();
-
-/* Menu Functions */
-void printMenu();
-void printPhase1Menu();
-void printPhase2Menu();
 
 /* **************************************** HELPER FUNCTIONS *************************************** */
 
@@ -80,7 +81,7 @@ void displayMatrix(int mat[10][10], int r, int c) // A method to display matrice
     }
 }
 
-void initialize2DMatrix(int mat[10][10], int r, int c)
+void initialize2DMatrix(int mat[10][10], int r, int c) // A method to initialze a matrix to a null matrix
 {
     int i, j;
 
@@ -91,6 +92,48 @@ void initialize2DMatrix(int mat[10][10], int r, int c)
             mat[i][j] = 0;
         }
     }
+}
+
+void printMainMenu() // A method to print the Main Menu 
+{
+    printf("========================================\n");
+    printf("|      ADVANCED MATRIX CALCULATOR      |\n");
+    printf("========================================\n");
+    printf("\n");
+    printf("1. Core Calculator Foundation\n");
+    printf("2. Matrix Analysis Operations\n");
+    printf("3. Matrix Property Checker\n");
+    printf("4. Determinants and Classical Linear Algebra\n");
+    printf("5. Matrix Transformations\n");
+    printf("6. Row Operations and Gaussian Elimination\n");
+    printf("7. Matrix Searching & Statistics\n");
+    printf("8. Exit\n\n");
+}
+
+void printPhase1Menu() // A method to print Phase 1 Menu
+{
+    printf("==========CORE CALCULATOR FOUNDATION==========\n\n");
+    printf("1. Matrix Addition\n");
+    printf("2. Matrix Subtraction\n");
+    printf("3. Matrix Multiplication\n");
+    printf("4. Transpose of a Matrix\n");
+    printf("5. Exit Phase 1 Menu\n\n");
+}
+
+void printPhase2Menu() // A method to print Phase 2 Menu
+{
+    printf("==========MATRIX ANALYSIS OPERATIONS==========\n\n");
+    printf("1. Row Sum\n");
+    printf("2. Column Sum\n");
+    printf("3. Main Diagonal Sum (Trace)\n");
+    printf("4. Secondary Diagonal Sum\n");
+    printf("5. Sum of All Elements\n");
+    printf("6. Maximum Element in Matrix\n");
+    printf("7. Minimum Element in Matrix\n");
+    printf("8. Count Positive Elements in Matrix\n");
+    printf("9. Count Negative Elements in Matrix\n");
+    printf("10. Count Zeros in Matrix\n");
+    printf("11. Exit\n\n");
 }
 
 /* **************************************** OPERATIONAL FUNCTIONS **************************************** */
@@ -259,7 +302,7 @@ int matSmallEle(int mat[10][10], int r, int c) // A method to find smallest elem
     return min;
 }
 
-int posCount(int mat[10][10], int r, int c)
+int posCount(int mat[10][10], int r, int c) // A method to count total positive elements in matrix
 {
     int i, j, count = 0;
 
@@ -277,7 +320,7 @@ int posCount(int mat[10][10], int r, int c)
     return count;
 }
 
-int negCount(int mat[10][10], int r, int c)
+int negCount(int mat[10][10], int r, int c) // A method to count total negative elements in matrix
 {
     int i, j, count = 0;
 
@@ -295,7 +338,7 @@ int negCount(int mat[10][10], int r, int c)
     return count;
 }
 
-int zeroCount(int mat[10][10], int r, int c)
+int zeroCount(int mat[10][10], int r, int c) // A method to count total zeros in matrix
 {
     int i, j, count = 0;
 
@@ -316,7 +359,7 @@ int zeroCount(int mat[10][10], int r, int c)
 /* *********************************HANDLER FUNCTIONS********************************** */
 
 // Phase 1
-void handleAddition()
+void handleAddition() 
 {
     int r, c;
     printf("Enter rows and columns of Matrix A and B:\n");
@@ -348,7 +391,7 @@ void handleAddition()
     displayMatrix(matSum, r, c);
 }
 
-void handleSubtraction()
+void handleSubtraction() 
 {
     int r, c;
     printf("Enter rows and columns of Matrix A and B:\n");
@@ -735,123 +778,188 @@ void handleZeroCount()
 
 int main()
 {
-    int choice;
+    int mainChoice,subChoice;
+    printf("\n");
 
     while (1)
     {
-        printf("\n");
-        printf("====Advanced Matrix Calculator====\n\n");
-        printf("===Core Calculator Foundation===\n");
-        printf("1. Matrix Addition\n");
-        printf("2. Matrix Subtraction\n");
-        printf("3. Matrix Multiplication\n");
-        printf("4. Transpose of a Matrix\n\n");
-        printf("===Matrix Analysis Operations===\n");
-        printf("5. Row Sum\n");
-        printf("6. Column Sum\n");
-        printf("7. Matrix Trace\n");
-        printf("8. Secondary Diagonal Sum\n");
-        printf("9. Sum of All elements\n");
-        printf("10. Maximum Element\n");
-        printf("11. Minimum Element\n");
-        printf("12. Count Positive Elements\n");
-        printf("13. Count Negative Elements\n");
-        printf("14. Count Zero Elements\n\n");
-        printf("15. Exit\n\n");
+        printMainMenu();
 
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        scanf("%d", &mainChoice);
 
         printf("\n");
 
-        switch (choice)
+        switch (mainChoice)
         {
-        case 1:
-        {
-            handleAddition();
+            case 1:
+
+            while(1)
+            {
+                printPhase1Menu();
+
+                printf("Enter your choice: ");
+                scanf("%d",&subChoice);
+
+                printf("\n");
+
+                switch (subChoice)
+                {
+                    case 1:
+                    handleAddition();
+                    printf("\n");
+                    break;
+
+                    case 2:
+                    handleSubtraction();
+                    printf("\n");
+                    break;
+
+                    case 3:
+                    handleMultiplication();
+                    printf("\n");
+                    break;
+
+                    case 4:
+                    handleTranspose();
+                    printf("\n");
+                    break;
+
+                    case 5:
+                    printf("Exiting Phase 1 Menu..\n\n");
+                    break;
+
+                    default:  
+                    printf("Invalid Input!! Please choose from 1-5\n\n");
+                }
+
+                if(subChoice==5)
+                {
+                    break;
+                }
+            }
+
             break;
-        }
-        case 2:
-        {
-            handleSubtraction();
+
+            case 2:
+
+            while(1)
+            {
+                printPhase2Menu();
+
+                printf("Enter your choice: ");
+                scanf("%d",&subChoice);
+
+                printf("\n");
+
+                switch (subChoice)
+                {
+                    case 1:
+                    handleRowSum();
+                    printf("\n");
+                    break;
+
+                    case 2:
+                    handleColSum();
+                    printf("\n");
+                    break;
+
+                    case 3:
+                    handleTrace();
+                    printf("\n");
+                    break;
+
+                    case 4:
+                    handleSecondaryDiagonal();
+                    printf("\n");
+                    break;
+
+                    case 5:
+                    handleElementsSum();
+                    printf("\n");
+                    break;
+
+                    case 6:
+                    handleMaximum();
+                    printf("\n");
+                    break;
+
+                    case 7:
+                    handleMinimum();
+                    printf("\n");
+                    break;
+
+                    case 8:
+                    handlePositiveCount();
+                    printf("\n");
+                    break;
+
+                    case 9:
+                    handleNegativeCount();
+                    printf("\n");
+                    break;
+
+                    case 10:
+                    handleZeroCount();
+                    printf("\n");
+                    break;
+
+                    case 11:
+                    printf("Exiting Phase 2 Menu..\n\n");
+                    break;
+
+                    default:
+                    printf("Invalid Input!! Please choose from 1-11\n\n");
+                }
+
+                if (subChoice==11)
+                {
+                    break;
+                }
+            }
+
             break;
-        }
-        case 3:
-        {
-            handleMultiplication();
+
+            case 3:
+
+            // Phase 3 Features
             break;
-        }
-        case 4:
-        {
-            handleTranspose();
+
+            case 4:
+
+            // Phase 4 Features
             break;
-        }
-        case 5:
-        {
-            handleRowSum();
+
+            case 5:
+
+            // Phase 5 Features
             break;
-        }
-        case 6:
-        {
-            handleColSum();
+
+            case 6:
+
+            // Phase 6 Features
             break;
-        }
-        case 7:
-        {
-            handleTrace();
+
+            case 7:
+
+            // Phase 7 Features
             break;
-        }
-        case 8:
-        {
-            handleSecondaryDiagonal();
-            break;
-        }
-        case 9:
-        {
-            handleElementsSum();
-            break;
-        }
-        case 10:
-        {
-            handleMaximum();
-            break;
-        }
-        case 11:
-        {
-            handleMinimum();
-            break;
-        }
-        case 12:
-        {
-            handlePositiveCount();
-            break;
-        }
-        case 13:
-        {
-            handleNegativeCount();
-            break;
-        }
-        case 14:
-        {
-            handleZeroCount();
-            break;
-        }
-        case 15:
-        {
+
+            case 8:
+            
             printf("Thank you for using the Matrix Calculator!!\n");
             printf("Hope you had a good time!!\n");
             printf("Visit soon!!\n");
-            printf("Program Ends :D !!\n");
+            printf("Program Ends :D !!\n\n");
             break;
-        }
-        default:
-        {
-            printf("Invalid Choice!\n");
-            printf("Please enter a correct choice!\n");
-        }
+
+            default:
+
+            printf("Invalid Input!! Please choose from 1-8\n\n");            
+
         }
 
-        if (choice == 15)
+        if (mainChoice==8)
         {
             break;
         }
