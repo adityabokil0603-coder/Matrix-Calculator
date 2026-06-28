@@ -1,13 +1,43 @@
-# Ignore compiled executable
+# ==========================
+# Compiled Executables
+# ==========================
 *.exe
+*.out
 
-# Ignore object files
+# ==========================
+# Object Files
+# ==========================
 *.o
 *.obj
 
-# OS junk files
+# ==========================
+# Static & Dynamic Libraries
+# ==========================
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# ==========================
+# Debug Symbols
+# ==========================
+*.pdb
+
+# ==========================
+# VS Code Settings
+# ==========================
+.vscode/
+
+# ==========================
+# OS Files
+# ==========================
 .DS_Store
 Thumbs.db
 
-# VS Code settings
-.vscode/
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.temp
+*~

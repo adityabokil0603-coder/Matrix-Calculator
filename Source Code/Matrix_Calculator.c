@@ -6,18 +6,18 @@
 /* Helper Functions */
 void inputMatrix(int mat[10][10], int r, int c);
 void displayMatrix(int mat[10][10], int r, int c);
-void initializeMatrix(int mat[10][10], int r, int c);
+void initialize2DMatrix(int mat[10][10], int r, int c);
 
 /* Operational Functions */
 // Phase 1
-void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c);
-void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c);
-void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p);
+void addMatrices(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c);
+void subtractMatrices(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c);
+void multiplyMatrices(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p);
 void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c);
 
 // Phase 2
-void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c);
-void colSum(int mat[10][10], int matColSum[10][10], int r, int c);
+void rowSum(int mat[10][10], int matRowSum[10], int r, int c);
+void colSum(int mat[10][10], int matColSum[10], int r, int c);
 int matTrace(int mat[10][10], int r);
 int matSecDiag(int mat[10][10], int r, int c);
 int matEleSum(int mat[10][10], int r, int c);
@@ -27,7 +27,7 @@ int posCount(int mat[10][10], int r, int c);
 int negCount(int mat[10][10], int r, int c);
 int zeroCount(int mat[10][10], int r, int c);
 
-/* Hander Functions */
+/* Handler Functions */
 // Phase 1
 void handleAddition();
 void handleSubtraction();
@@ -80,7 +80,7 @@ void displayMatrix(int mat[10][10], int r, int c) // A method to display matrice
     }
 }
 
-void initializeMatrix(int mat[10][10], int r, int c)
+void initialize2DMatrix(int mat[10][10], int r, int c)
 {
     int i, j;
 
@@ -95,7 +95,8 @@ void initializeMatrix(int mat[10][10], int r, int c)
 
 /* **************************************** OPERATIONAL FUNCTIONS **************************************** */
 
-void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c) // A method to add matrices
+// Phase 1
+void addMatrices(int matA[10][10], int matB[10][10], int matSum[10][10], int r, int c) // A method to add matrices
 {
     int i, j;
 
@@ -108,7 +109,7 @@ void addMatrix(int matA[10][10], int matB[10][10], int matSum[10][10], int r, in
     }
 }
 
-void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c) // A method to subtract matrices
+void subtractMatrices(int matA[10][10], int matB[10][10], int matDiff[10][10], int r, int c) // A method to subtract matrices
 {
     int i, j;
 
@@ -121,9 +122,11 @@ void subtractMatrix(int matA[10][10], int matB[10][10], int matDiff[10][10], int
     }
 }
 
-void multiplyMatrix(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p) // A method to multiply matrices
+void multiplyMatrices(int matA[10][10], int matB[10][10], int matMul[10][10], int r, int c, int p) // A method to multiply matrices
 {
     int i, j, k;
+
+    initialize2DMatrix(matMul, r, c);
 
     for (i = 0; i < r; i++)
     {
@@ -150,7 +153,8 @@ void transposeMatrix(int mat[10][10], int matTrans[10][10], int r, int c) // A m
     }
 }
 
-void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c) // A method to calculate the sum of all elements in a row of a matrix
+// Phase 2
+void rowSum(int mat[10][10], int matRowSum[10], int r, int c) // A method to calculate the sum of all elements in a row of a matrix
 {
     int i, j;
 
@@ -158,12 +162,12 @@ void rowSum(int mat[10][10], int matRowSum[10][10], int r, int c) // A method to
     {
         for (j = 0; j < c; j++)
         {
-            matRowSum[i][0] += mat[i][j];
+            matRowSum[i] += mat[i][j];
         }
     }
 }
 
-void colSum(int mat[10][10], int matColSum[10][10], int r, int c) // A method to calculate the sum of all elements in a column of a matrix
+void colSum(int mat[10][10], int matColSum[10], int r, int c) // A method to calculate the sum of all elements in a column of a matrix
 {
     int i, j;
 
@@ -171,11 +175,12 @@ void colSum(int mat[10][10], int matColSum[10][10], int r, int c) // A method to
     {
         for (j = 0; j < c; j++)
         {
-            matColSum[0][j] += mat[i][j];
+            matColSum[j] += mat[i][j];
         }
     }
 }
 
+// Precondition: Matrix must be square (r==c)
 int matTrace(int mat[10][10], int r) // A method to calculate the trace of a matrix
 {
     int i, sum = 0;
@@ -188,6 +193,7 @@ int matTrace(int mat[10][10], int r) // A method to calculate the trace of a mat
     return sum;
 }
 
+// Precondition: Matrix must be square (r==c)
 int matSecDiag(int mat[10][10], int r, int c) // A method to calculate sum of secondary diagonal
 {
     int i, sum = 0;
@@ -308,7 +314,424 @@ int zeroCount(int mat[10][10], int r, int c)
 }
 
 /* *********************************HANDLER FUNCTIONS********************************** */
-// Yet to add
+
+// Phase 1
+void handleAddition()
+{
+    int r, c;
+    printf("Enter rows and columns of Matrix A and B:\n");
+    scanf("%d %d", &r, &c);
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("\n");
+
+    int matA[10][10], matB[10][10], matSum[10][10];
+
+    printf("Enter elements of Matrix A:\n");
+    inputMatrix(matA, r, c);
+
+    printf("\n");
+
+    printf("Enter elements of Matrix B:\n");
+    inputMatrix(matB, r, c);
+
+    addMatrices(matA, matB, matSum, r, c);
+
+    printf("\n");
+
+    printf("Summation Matrix:\n");
+    displayMatrix(matSum, r, c);
+}
+
+void handleSubtraction()
+{
+    int r, c;
+    printf("Enter rows and columns of Matrix A and B:\n");
+    scanf("%d %d", &r, &c);
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("\n");
+
+    int matA[10][10], matB[10][10], matDiff[10][10];
+
+    printf("Enter elements of Matrix A:\n");
+    inputMatrix(matA, r, c);
+
+    printf("\n");
+
+    printf("Enter elements of Matrix B:\n");
+    inputMatrix(matB, r, c);
+
+    subtractMatrices(matA, matB, matDiff, r, c);
+
+    printf("\n");
+
+    printf("Difference Matrix:\n");
+    displayMatrix(matDiff, r, c);
+}
+
+void handleMultiplication()
+{
+    int rA, cA, rB, cB;
+    int matA[10][10], matB[10][10], matMul[10][10];
+
+    printf("Enter rows and columns of Matrix A:\n");
+    scanf("%d %d", &rA, &cA);
+
+    printf("\n");
+
+    printf("Enter rows and columns of Matrix B:\n");
+    scanf("%d %d", &rB, &cB);
+
+    printf("\n");
+
+    if (rA <= 0 || rA > 10 || cA <= 0 || cA > 10 || rB <= 0 || rB > 10 || cB <= 0 || cB > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+    if (cA != rB)
+    {
+        printf("Matrix multiplication is not possible. Columns of Matrix A must equal rows of Matrix B.\n");
+        return;
+    }
+
+    printf("Enter elements of Matrix A:\n");
+    inputMatrix(matA, rA, cA);
+
+    printf("\n");
+
+    printf("Enter elements of Matrix B:\n");
+    inputMatrix(matB, rB, cB);
+
+    printf("\n");
+
+    multiplyMatrices(matA, matB, matMul, rA, cB, cA);
+
+    printf("Multiplication Matrix:\n");
+    displayMatrix(matMul, rA, cB);
+}
+
+void handleTranspose()
+{
+    int mat[10][10], matTrans[10][10];
+    int r, c;
+
+    printf("Enter rows and columns of Matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("\n");
+
+    printf("Enter elements of the Matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    transposeMatrix(mat, matTrans, r, c);
+
+    printf("Transpose Matrix:\n");
+    displayMatrix(matTrans, c, r);
+}
+
+// Phase 2
+void handleRowSum()
+{
+    int mat[10][10], matSum[10];
+    int r, c, i;
+
+    printf("Enter rows and columns of Matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("\n");
+
+    printf("Enter elements of the Matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    for (i = 0; i < r; i++)
+    {
+        matSum[i] = 0;
+    }
+
+    rowSum(mat, matSum, r, c);
+
+    printf("Row Sum Matrix:\n");
+    for (i = 0; i < r; i++)
+    {
+        printf("%d\n", matSum[i]);
+    }
+}
+
+void handleColSum()
+{
+    int mat[10][10], matSum[10];
+    int r, c, j;
+
+    printf("Enter rows and columns of Matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("\n");
+
+    printf("Enter elements of the Matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    for (j = 0; j < c; j++)
+    {
+        matSum[j] = 0;
+    }
+
+    colSum(mat, matSum, r, c);
+
+    printf("Column Sum Matrix:\n");
+    for (j = 0; j < c; j++)
+    {
+        printf("%d ", matSum[j]);
+    }
+    printf("\n");
+}
+
+void handleTrace()
+{
+    int r, c;
+    int mat[10][10], sum;
+
+    printf("Enter rows and columns of Matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    if (r != c)
+    {
+        printf("Invalid input!! Trace only works for square matrices!\n");
+        return;
+    }
+
+    printf("Enter elements of matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    sum = matTrace(mat, r);
+
+    printf("Trace of Matrix: %d\n", sum);
+}
+
+void handleSecondaryDiagonal()
+{
+    int r, c;
+    int mat[10][10], sum;
+
+    printf("Enter rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    if (r != c)
+    {
+        printf("Invalid input!! Rows and Columns must be equal for this feature!\n");
+        return;
+    }
+
+    printf("Enter elements of matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    sum = matSecDiag(mat, r, c);
+
+    printf("Secondary Diagonal Sum of Matrix: %d\n", sum);
+}
+
+void handleElementsSum()
+{
+    int r, c;
+    int mat[10][10], sum;
+
+    printf("Enter number of rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    sum = matEleSum(mat, r, c);
+
+    printf("Sum of all elements in matrix: %d\n", sum);
+}
+
+void handleMaximum()
+{
+    int mat[10][10], r, c, max;
+    printf("Enter number of rows and columns of the matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    max = matGreatEle(mat, r, c);
+
+    printf("Greatest element in the matrix: %d\n", max);
+}
+
+void handleMinimum()
+{
+    int mat[10][10], r, c, min;
+    printf("Enter number of rows and columns of the matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    min = matSmallEle(mat, r, c);
+
+    printf("Smallest element in the matrix: %d\n", min);
+}
+
+void handlePositiveCount()
+{
+    int mat[10][10], r, c, count;
+    printf("Enter number of rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    count = posCount(mat, r, c);
+
+    printf("The number of positive elements in the matrix: %d\n", count);
+}
+
+void handleNegativeCount()
+{
+    int mat[10][10], r, c, count;
+    printf("Enter number of rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    count = negCount(mat, r, c);
+
+    printf("The number of negative elements in the matrix: %d\n", count);
+}
+
+void handleZeroCount()
+{
+    int mat[10][10], r, c, count;
+    printf("Enter number of rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    count = zeroCount(mat, r, c);
+
+    printf("The number of zeros in the matrix: %d\n", count);
+}
 
 int main()
 {
@@ -345,354 +768,72 @@ int main()
         {
         case 1:
         {
-            int r, c;
-            printf("Enter rows and columns of Matrix A and B:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            int matA[10][10], matB[10][10], matSum[10][10];
-
-            printf("Enter elements of Matrix A:\n");
-            inputMatrix(matA, r, c);
-
-            printf("\n");
-
-            printf("Enter elements of Matrix B:\n");
-            inputMatrix(matB, r, c);
-
-            addMatrix(matA, matB, matSum, r, c);
-
-            printf("\n");
-
-            printf("Summation Matrix:\n");
-            displayMatrix(matSum, r, c);
-
+            handleAddition();
             break;
         }
         case 2:
         {
-            int r, c;
-            printf("Enter rows and columns of Matrix A and B:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            int matA[10][10], matB[10][10], matDiff[10][10];
-
-            printf("Enter elements of Matrix A:\n");
-            inputMatrix(matA, r, c);
-
-            printf("\n");
-
-            printf("Enter elements of Matrix B:\n");
-            inputMatrix(matB, r, c);
-
-            subtractMatrix(matA, matB, matDiff, r, c);
-
-            printf("\n");
-
-            printf("Difference Matrix:\n");
-            displayMatrix(matDiff, r, c);
-
+            handleSubtraction();
             break;
         }
         case 3:
         {
-            int i, j;
-            int rA, cA, rB, cB;
-            int matA[10][10], matB[10][10], matMul[10][10];
-
-            printf("Enter rows and columns of Matrix A:\n");
-            scanf("%d %d", &rA, &cA);
-
-            printf("\n");
-
-            printf("Enter rows and columns of Matrix B:\n");
-            scanf("%d %d", &rB, &cB);
-
-            printf("\n");
-
-            if (cA != rB)
-            {
-                printf("Invalid Input!!\n");
-                printf("Columns of Matrix A must be equal to Rows of Matrix B!");
-            }
-            else
-            {
-                // First we need to initialize matMul as a null matrix
-                for (i = 0; i < rA; i++)
-                {
-                    for (j = 0; j < cB; j++)
-                    {
-                        matMul[i][j] = 0;
-                    }
-                }
-
-                printf("Enter elements of Matrix A:\n");
-                inputMatrix(matA, rA, cA);
-
-                printf("\n");
-
-                printf("Enter elements of Matrix B:\n");
-                inputMatrix(matB, rB, cB);
-
-                printf("\n");
-
-                multiplyMatrix(matA, matB, matMul, rA, cB, cA);
-
-                printf("Multiplication Matrix:\n");
-                displayMatrix(matMul, rA, cB);
-            }
-
+            handleMultiplication();
             break;
         }
         case 4:
         {
-            int mat[10][10], matTrans[10][10];
-            int r, c;
-
-            printf("Enter rows and columns of Matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the Matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            transposeMatrix(mat, matTrans, r, c);
-
-            printf("Transpose Matrix:\n");
-            displayMatrix(matTrans, c, r);
-
+            handleTranspose();
             break;
         }
         case 5:
         {
-            int mat[10][10], matSum[10][10];
-            int r, c, i;
-
-            printf("Enter rows and columns of Matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the Matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            // Initializing matSum matrix as a null matrix
-            for (i = 0; i < r; i++)
-            {
-                matSum[i][0] = 0;
-            }
-
-            rowSum(mat, matSum, r, c);
-
-            printf("Row Sum Matrix:\n");
-            displayMatrix(matSum, r, 1);
-
+            handleRowSum();
             break;
         }
         case 6:
         {
-            int mat[10][10], matSum[10][10];
-            int r, c, j;
-
-            printf("Enter rows and columns of Matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the Matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            // Initializing matSum as a null matrix
-            for (j = 0; j < c; j++)
-            {
-                matSum[0][j] = 0;
-            }
-
-            colSum(mat, matSum, r, c);
-
-            printf("Column Sum Matrix:\n");
-            displayMatrix(matSum, 1, c);
-
+            handleColSum();
             break;
         }
         case 7:
         {
-            int r, c, i, j;
-            int mat[10][10], sum;
-
-            printf("Enter rows and columns of Matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            if (r != c)
-            {
-                printf("Invalid input!! Trace only works for square matrices!");
-            }
-            else
-            {
-                printf("Enter elements of matrix:\n");
-                inputMatrix(mat, r, c);
-
-                printf("\n");
-
-                sum = matTrace(mat, r);
-
-                printf("Trace of Matrix: %d", sum);
-            }
-
+            handleTrace();
             break;
         }
         case 8:
         {
-            int r, c, i, j;
-            int mat[10][10], sum;
-
-            printf("Enter rows and columns of matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            if (r != c)
-            {
-                printf("Invalid input!! Rows and Columns must be equal for this feature!\n");
-            }
-            else
-            {
-                printf("Enter elements of matrix:\n");
-                inputMatrix(mat, r, c);
-
-                printf("\n");
-
-                sum = matSecDiag(mat, r, c);
-
-                printf("Secondary Diagonal Sum of Matrix: %d", sum);
-            }
-
+            handleSecondaryDiagonal();
             break;
         }
         case 9:
         {
-            int r, c, i, j;
-            int mat[10][10], sum;
-
-            printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            matEleSum(mat, r, c);
-
-            printf("Sum of all elements in matrix: %d", sum);
-
+            handleElementsSum();
             break;
         }
         case 10:
         {
-            int mat[10][10], r, c, max;
-            printf("Enter number of rows and columns of the matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            max = matGreatEle(mat, r, c);
-
-            printf("Greatest element in the matrix: %d", max);
-
+            handleMaximum();
             break;
         }
         case 11:
         {
-            int mat[10][10], r, c, min;
-            printf("Enter number of rows and columns of the matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            min = matSmallEle(mat, r, c);
-
-            printf("Smallest element in the matrix: %d", min);
-
+            handleMinimum();
             break;
         }
         case 12:
         {
-            int mat[10][10], r, c, count;
-            printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            count = posCount(mat, r, c);
-
-            printf("The number of positive elements in the matrix: %d", count);
-
+            handlePositiveCount();
             break;
         }
         case 13:
         {
-            int mat[10][10], r, c, count;
-            printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            count = negCount(mat, r, c);
-
-            printf("The number of negative elements in the matrix: %d", count);
-
+            handleNegativeCount();
             break;
         }
         case 14:
         {
-            int mat[10][10], r, c, count;
-            printf("Enter number of rows and columns of matrix:\n");
-            scanf("%d %d", &r, &c);
-
-            printf("\n");
-
-            printf("Enter elements of the matrix:\n");
-            inputMatrix(mat, r, c);
-
-            printf("\n");
-
-            count = zeroCount(mat, r, c);
-
-            printf("The number of zeros in the matrix: %d", count);
-
+            handleZeroCount();
             break;
         }
         case 15:
