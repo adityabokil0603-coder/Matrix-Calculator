@@ -1,14 +1,14 @@
 # Advanced Matrix Calculator
 
-A menu-driven Matrix Calculator developed in **C** as a mini-project to practice programming fundamentals, modular programming, matrix mathematics, and software development using Git and GitHub.
+A menu-driven **Matrix Calculator** developed in **C** as a mini-project to strengthen programming fundamentals, modular programming, matrix mathematics, and software development practices using **Git** and **GitHub**.
 
-The project is being developed incrementally in multiple phases, starting from basic matrix operations and gradually expanding into a comprehensive linear algebra toolkit with professional software engineering features.
+The project is being developed incrementally through multiple phases, beginning with basic matrix operations and gradually progressing toward advanced matrix algorithms, statistical analysis, and professional software architecture.
 
 ---
 
-## Current Progress
+# Current Progress
 
-### Phase 1: Core Calculator Foundation ✅
+## Phase 1 — Core Calculator Foundation ✅
 
 * [x] Matrix Input
 * [x] Matrix Display
@@ -20,11 +20,11 @@ The project is being developed incrementally in multiple phases, starting from b
 
 ---
 
-### Phase 2: Matrix Analysis Operations 🚧
+## Phase 2 — Matrix Analysis Operations ✅
 
 * [x] Row Sum
 * [x] Column Sum
-* [x] Matrix Trace
+* [x] Main Diagonal Sum (Trace)
 * [x] Secondary Diagonal Sum
 * [x] Sum of All Elements
 * [x] Maximum Element
@@ -35,125 +35,119 @@ The project is being developed incrementally in multiple phases, starting from b
 
 ---
 
-### Phase 3: Matrix Property Checker 🚧
+## Phase 3 — Matrix Property Checker ⭕
 
 * [ ] Identity Matrix Check
 * [ ] Symmetric Matrix Check
-* [ ] Skew-Symmetric Matrix Check
-* [ ] Diagonal Matrix Check
-* [ ] Scalar Matrix Check
 * [ ] Upper Triangular Matrix Check
 * [ ] Lower Triangular Matrix Check
+* [ ] Diagonal Matrix Check
 * [ ] Sparse Matrix Check
-* [ ] Null Matrix Check
-* [ ] Square Matrix Check
 
 ---
 
-### Phase 4: Determinants and Classical Linear Algebra 🚧
+## Phase 4 — Intermediate Mathematical Operations ⭕
 
 * [ ] Determinant (2×2)
 * [ ] Determinant (3×3)
-* [ ] Determinant (n×n)
 * [ ] Matrix Minor
 * [ ] Matrix Cofactor
-* [ ] Matrix Adjoint
-* [ ] Matrix Inverse (2×2)
-* [ ] Matrix Inverse (3×3)
-* [ ] Matrix Inverse (n×n)
 
 ---
 
-### Phase 5: Matrix Transformations 🚧
+## Phase 5 — Advanced Matrix Operations ⭕
 
+* [ ] Matrix Inverse (2×2)
+* [ ] Matrix Adjoint
 * [ ] Scalar Multiplication
 * [ ] Matrix Equality Check
-* [ ] Matrix Copy
-* [ ] Matrix Rotation (90° Clockwise)
-* [ ] Matrix Rotation (90° Anti-clockwise)
-* [ ] Horizontal Reflection
-* [ ] Vertical Reflection
-* [ ] Matrix Reshaping
-* [ ] Matrix Flattening
 
 ---
 
-### Phase 6: Row Operations and Gaussian Elimination 🚧
+## Phase 6 — Matrix Transformation & Rearrangement ⭕
 
-* [ ] Swap Two Rows
-* [ ] Swap Two Columns
-* [ ] Multiply a Row by a Constant
-* [ ] Add Multiple of One Row to Another
-* [ ] Row Echelon Form (REF)
-* [ ] Reduced Row Echelon Form (RREF)
-* [ ] Rank of Matrix
-* [ ] Solve Linear Equations using Gaussian Elimination
-
----
-
-### Phase 7: Professional Enhancements 🚧
-
-* [ ] Dimension Validation
-* [ ] Invalid Input Handling
-* [ ] Better Error Messages
-* [ ] Formatted Matrix Output
-* [ ] Continue/Exit Confirmation
-* [ ] Colored Output
-* [ ] Screen Clear Function
-* [ ] Welcome Banner
-* [ ] Operation History
+* [ ] Row Interchange
+* [ ] Column Interchange
+* [ ] Horizontal Flip
+* [ ] Vertical Flip
+* [ ] Rotate Matrix (90° Clockwise)
+* [ ] Rotate Matrix (90° Counter-Clockwise)
+* [ ] Rotate Matrix (180°)
 
 ---
 
-### Phase 8: File Handling and Project Architecture 🚧
+## Phase 7 — Matrix Searching & Statistics ⭕
 
-* [ ] Save Matrix to File
-* [ ] Load Matrix from File
-* [ ] Save Result Matrix
-* [ ] Maintain Operation Log
-* [ ] Export Session History
-* [ ] Modularize into Multiple Source Files
-* [ ] Header Files
-* [ ] Separate Compilation
-* [ ] Static Libraries
-* [ ] Makefile Support
-
----
-
-## Development Roadmap
-
-The project is being developed phase by phase.
-
-| Phase   | Description                               |
-| ------- | ----------------------------------------- |
-| Phase 1 | Core Calculator Foundation                |
-| Phase 2 | Matrix Analysis Operations                |
-| Phase 3 | Matrix Property Checker                   |
-| Phase 4 | Determinants and Classical Linear Algebra |
-| Phase 5 | Matrix Transformations                    |
-| Phase 6 | Row Operations and Gaussian Elimination   |
-| Phase 7 | Professional Enhancements                 |
-| Phase 8 | File Handling and Project Architecture    |
-
-For a detailed roadmap, see **PROJECT_PHASES.md**.
+* [ ] Search an Element
+* [ ] Count Occurrences of an Element
+* [ ] Average of Matrix Elements
+* [ ] Median of Matrix Elements
+* [ ] Mode of Matrix Elements
+* [ ] Frequency Distribution
+* [ ] Row-wise Maximum
+* [ ] Row-wise Minimum
+* [ ] Column-wise Maximum
+* [ ] Column-wise Minimum
 
 ---
 
-## Future Ideas
+# Project Structure
 
-* LU Decomposition
-* Cholesky Decomposition
-* QR Decomposition
-* Eigenvalues and Eigenvectors
-* Dynamic Matrix Size using `malloc()`
-* Sparse Matrix Storage
-* Execution Time Benchmarking
-* Matrix Heatmaps
-* Step-by-step Gaussian Elimination Visualization
+```text
+Matrix Calculator
+│
+├── src/                  # Source code
+├── docs/                 # Documentation
+│   ├── Flowchart.png
+│   ├── Architecture.png
+│   └── Screenshots/
+│
+├── README.md             # Project overview
+├── PROJECT_PHASES.md     # Development roadmap
+└── .gitignore            # Ignored files
+```
 
 ---
 
-## Technologies Used
+# Development Roadmap
+
+| Phase   | Description                           |
+| ------- | ------------------------------------- |
+| Phase 1 | Core Calculator Foundation            |
+| Phase 2 | Matrix Analysis Operations            |
+| Phase 3 | Matrix Property Checker               |
+| Phase 4 | Intermediate Mathematical Operations  |
+| Phase 5 | Advanced Matrix Operations            |
+| Phase 6 | Matrix Transformation & Rearrangement |
+| Phase 7 | Matrix Searching & Statistics         |
+
+For a detailed implementation plan, refer to **PROJECT_PHASES.md**.
+
+---
+
+# Continuous Improvements
+
+The following enhancements are implemented continuously throughout the project rather than being confined to a single development phase.
+
+* Dimension Validation
+* Invalid Input Handling
+* Formatted Matrix Output
+* Menu Refactoring
+* Modular Programming
+* Helper Functions
+* Handler Functions
+* Function Prototypes
+* Header File Separation
+* Source File Separation
+* Code Refactoring
+* Improved User Interface
+* Git Version Control
+* GitHub Repository Management
+* Documentation Improvements
+
+---
+
+# Technologies Used
 
 * **Language:** C
 * **Compiler:** GCC
@@ -163,24 +157,26 @@ For a detailed roadmap, see **PROJECT_PHASES.md**.
 
 ---
 
-## Learning Objectives
+# Learning Objectives
 
 This project aims to strengthen understanding of:
 
 * Arrays and Two-Dimensional Arrays
 * Functions and Parameter Passing
 * Modular Programming
-* Menu-Driven Programs
+* Menu-Driven Programming
 * Matrix Mathematics
-* Linear Algebra Concepts
+* Algorithm Design
+* Problem Solving
+* Code Refactoring
+* Software Design Principles
 * Debugging Techniques
-* File Handling
 * Git and GitHub
-* Project Documentation
+* Technical Documentation
 
 ---
 
-## Author
+# Author
 
 **Aditya Bokil**
 
@@ -188,4 +184,4 @@ B.Tech Artificial Intelligence & Data Science Student
 
 ---
 
-*This project is being built incrementally as part of my AI & DS learning journey.*
+*This project is being developed incrementally as part of my AI & DS learning journey, with a focus on writing clean, modular, and maintainable C programs while strengthening mathematical and software engineering concepts.*

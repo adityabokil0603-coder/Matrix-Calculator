@@ -1,10 +1,14 @@
 # Advanced Matrix Calculator - Project Roadmap
 
-## Phase 1: Core Calculator Foundation
+This document outlines the development roadmap of the **Advanced Matrix Calculator**. The project is implemented incrementally, with each phase introducing new concepts in C programming, matrix mathematics, algorithm design, and software engineering.
 
-Build the basic menu-driven matrix calculator and implement the most common matrix operations.
+---
 
-### Features
+# Phase 1: Core Calculator Foundation
+
+Build the fundamental menu-driven calculator and implement the essential matrix operations.
+
+## Features
 
 * Matrix Addition
 * Matrix Subtraction
@@ -14,15 +18,15 @@ Build the basic menu-driven matrix calculator and implement the most common matr
 
 ---
 
-## Phase 2: Matrix Analysis Operations
+# Phase 2: Matrix Analysis Operations
 
-Implement operations that analyze matrix contents and provide useful numerical information.
+Implement operations that analyze matrix contents and compute useful numerical information.
 
-### Features
+## Features
 
 * Row Sum
 * Column Sum
-* Matrix Trace
+* Main Diagonal Sum (Trace)
 * Secondary Diagonal Sum
 * Sum of All Elements
 * Maximum Element
@@ -33,123 +37,129 @@ Implement operations that analyze matrix contents and provide useful numerical i
 
 ---
 
-## Phase 3: Matrix Property Checker
+# Phase 3: Matrix Property Checker
 
-Allow users to verify important mathematical properties of matrices.
+Implement functions to verify important mathematical properties of matrices.
 
-### Features
+## Features
 
 * Identity Matrix Check
 * Symmetric Matrix Check
-* Skew-Symmetric Matrix Check
-* Diagonal Matrix Check
-* Scalar Matrix Check
 * Upper Triangular Matrix Check
 * Lower Triangular Matrix Check
+* Diagonal Matrix Check
 * Sparse Matrix Check
-* Null Matrix Check
-* Square Matrix Check
 
 ---
 
-## Phase 4: Determinants and Classical Linear Algebra
+# Phase 4: Intermediate Mathematical Operations
 
-Introduce classical matrix mathematics used in linear algebra.
+Introduce classical matrix operations used in introductory linear algebra.
 
-### Features
+## Features
 
 * Determinant (2×2)
 * Determinant (3×3)
-* Determinant (n×n)
 * Matrix Minor
 * Matrix Cofactor
-* Matrix Adjoint
-* Matrix Inverse (2×2)
-* Matrix Inverse (3×3)
-* Matrix Inverse (n×n)
 
 ---
 
-## Phase 5: Matrix Transformations
+# Phase 5: Advanced Matrix Operations
 
-Implement advanced matrix operations and transformations.
+Implement more advanced matrix manipulation techniques.
 
-### Features
+## Features
 
+* Matrix Inverse (2×2)
+* Matrix Adjoint
 * Scalar Multiplication
 * Matrix Equality Check
-* Matrix Copy
-* Matrix Rotation (90° Clockwise)
-* Matrix Rotation (90° Anti-clockwise)
-* Horizontal Reflection
-* Vertical Reflection
-* Matrix Reshaping
-* Matrix Flattening
 
 ---
 
-## Phase 6: Row Operations and Gaussian Elimination
+# Phase 6: Matrix Transformation & Rearrangement
 
-Implement row operations and solve systems of linear equations.
+Implement operations that transform or rearrange matrices.
 
-### Features
+## Features
 
-* Swap Two Rows
-* Swap Two Columns
-* Multiply a Row by a Constant
-* Add Multiple of One Row to Another
-* Row Echelon Form (REF)
-* Reduced Row Echelon Form (RREF)
-* Rank of Matrix
-* Solve Linear Equations using Gaussian Elimination
+* Row Interchange
+* Column Interchange
+* Horizontal Flip
+* Vertical Flip
+* Rotate Matrix (90° Clockwise)
+* Rotate Matrix (90° Counter-Clockwise)
+* Rotate Matrix (180°)
 
 ---
 
-## Phase 7: Professional Enhancements
+# Phase 7: Matrix Searching & Statistics
 
-Improve usability, robustness, and user experience.
+Implement searching algorithms and statistical operations on matrices.
 
-### Features
+## Features
+
+* Search an Element
+* Count Occurrences of an Element
+* Average of Matrix Elements
+* Median of Matrix Elements
+* Mode of Matrix Elements
+* Frequency Distribution
+* Row-wise Maximum
+* Row-wise Minimum
+* Column-wise Maximum
+* Column-wise Minimum
+
+---
+
+# Continuous Improvements
+
+The following enhancements are incorporated throughout the project's development rather than being confined to a specific phase.
+
+## Improvements
 
 * Dimension Validation
 * Invalid Input Handling
-* Better Error Messages
 * Formatted Matrix Output
-* Continue/Exit Confirmation
-* Colored Output
-* Screen Clear Function
-* Welcome Banner
-* Operation History
+* Menu Refactoring
+* Modular Programming
+* Helper Functions
+* Handler Functions
+* Function Prototypes
+* Header File Separation
+* Source File Separation
+* Code Refactoring
+* Improved User Interface
+* Git Version Control
+* GitHub Repository Management
+* Documentation Improvements
 
 ---
 
-## Phase 8: File Handling and Project Architecture
+# Future Scope
 
-Transform the calculator into a professional and extensible project.
+The following features are intentionally kept outside the current roadmap as future extensions for continued learning.
 
-### Features
+## Possible Enhancements
 
-* Save Matrix to File
-* Load Matrix from File
-* Save Result Matrix
-* Maintain Operation Log
-* Export Session History
-* Modularize into Multiple Source Files
-* Header Files
-* Separate Compilation
+* Determinant (n×n)
+* Matrix Inverse (3×3)
+* Matrix Inverse (n×n)
+* Gaussian Elimination
+* Row Echelon Form (REF)
+* Reduced Row Echelon Form (RREF)
+* Rank of Matrix
+* Solving Systems of Linear Equations
+* Dynamic Matrix Size using `malloc()`
+* File Saving and Loading
+* Operation History
+* Modular Project using Multiple Source Files
+* Header Files and Separate Compilation
 * Static Libraries
 * Makefile Support
-
+* Execution Time Benchmarking
+* Sparse Matrix Storage Optimization
 ---
 
-## Future Ideas
-
-* LU Decomposition
-* Cholesky Decomposition
-* QR Decomposition
-* Eigenvalues and Eigenvectors
-* Dynamic Matrix Size using malloc()
-* Sparse Matrix Storage
-* Execution Time Benchmarking
-* Matrix Heatmaps
-* Step-by-step Gaussian Elimination Visualization
+*This roadmap evolves alongside the project and serves as a guide for learning C programming, matrix mathematics, modular software design, and professional development practices.*
