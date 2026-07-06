@@ -35,9 +35,9 @@ The project is being developed incrementally through multiple phases, beginning 
 
 ---
 
-## Phase 3 — Matrix Property Checker ⭕
+## Phase 3 — Matrix Property Checker 🚧 
 
-* [ ] Identity Matrix Check
+* [x] Identity Matrix Check
 * [ ] Symmetric Matrix Check
 * [ ] Upper Triangular Matrix Check
 * [ ] Lower Triangular Matrix Check
