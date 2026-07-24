@@ -35,6 +35,7 @@ int zeroCount(int mat[10][10], int r, int c);
 
 // Phase 3
 int identityMatrix(int mat[10][10], int r);
+int symmetricMatrix(int mat[10][10], int r);
 
 /* Handler Functions */
 
@@ -403,6 +404,25 @@ int identityMatrix(int mat[10][10], int r) // A method to check identity matrix
                 {
                     return 0;
                 }
+            }
+        }
+    }
+
+    return 1;
+}
+
+// Matrix must strictly be a square matrix
+int symmetricMatrix(int mat[10][10], int r)
+{
+    int i,j;
+
+    for(i=0;i<r;i++)
+    {
+        for(j=i+1;j<r;j++)
+        {
+            if(mat[i][j] != mat[j][i])
+            {
+                return 0;
             }
         }
     }
@@ -833,7 +853,7 @@ void handleZeroCount()
 // Phase 3
 void handleIdentityMatrix()
 {
-    int mat[10][10], r, c, check;
+    int mat[10][10], r, c;
     printf("Enter rows and columns of matrix:\n");
     scanf("%d %d", &r, &c);
 
@@ -865,6 +885,41 @@ void handleIdentityMatrix()
     else
     {
         printf("Entered matrix is not an Identity Matrix\n");
+    }
+}
+
+void handleSymmetricMatrix()
+{
+    int mat[10][10], r, c;
+    printf("Enter number of rows and columns of matrix:\n");
+    scanf("%d %d", &r, &c);
+
+    printf("\n");
+
+    if (r <= 0 || r > 10 || c <= 0 || c > 10)
+    {
+        printf("Invalid matrix dimensions! Rows and columns must be between 1 and 10.\n");
+        return;
+    }
+
+    if (r != c)
+    {
+        printf("Invalid input!! Rows and columns must be equal to implement this feature!\n");
+        return;
+    }
+
+    printf("Enter elements of the matrix:\n");
+    inputMatrix(mat, r, c);
+
+    printf("\n");
+
+    if(symmetricMatrix(mat,r))
+    {
+        printf("Entered matrix is symmetric\n");
+    }
+    else
+    {
+        printf("Entered matrix is not symmetric\n");
     }
 }
 
@@ -1027,6 +1082,11 @@ int main()
                 {
                 case 1:
                     handleIdentityMatrix();
+                    printf("\n");
+                    break;
+                
+                case 2:
+                    handleSymmetricMatrix();
                     printf("\n");
                     break;
 
